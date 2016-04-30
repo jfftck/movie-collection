@@ -1,9 +1,9 @@
 /* Animation Frames */
-@keyframes bounce {
+@keyframes pulse {
 	/* Create a pulsing color background when busy. */
 	0% {
-		/* Start with the background color at 25% opacity. */
-		background-color: rgba(0, 136, 255, 0.25);
+		/* Start with the background color at 0% opacity. */
+		background-color: rgba(0, 136, 255, 0);
 	}
 
 	50% {
@@ -163,9 +163,9 @@ section section, form input {
 	background-image: linear-gradient(to right, rgba(0, 136, 255, 0) 5%, rgba(0, 136, 255, 0.25), rgba(0, 136, 255, 0) 95%);
 	background-attachment: repeat-x;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
-	-moz-animation: bounce 2s linear infinite;
-	-webkit-animation: bounce 2s linear infinite;
-	animation: bounce 2s linear infinite;
+	-moz-animation: pulse 2s linear infinite;
+	-webkit-animation: pulse 2s linear infinite;
+	animation: pulse 2s linear infinite;
 }
 
 .list {
