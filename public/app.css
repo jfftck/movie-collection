@@ -157,7 +157,7 @@ section section, form input {
 
 /* Class Styles */
 .busy {
-	color: transparent;
+	color: transparent !important;
 	text-shadow: 0 0 4px #000;
 	background-size: cover;
 	background-image: linear-gradient(to right, rgba(0, 136, 255, 0) 5%, rgba(0, 136, 255, 0.25), rgba(0, 136, 255, 0) 95%);
