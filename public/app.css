@@ -1,19 +1,19 @@
 /* Animation Frames */
-@keyframes scroll {
-	/* Create a scrolling background when busy. */
+@keyframes bounce {
+	/* Create a pulsing color background when busy. */
 	0% {
-		/* Start with the background at 0%, 0% */
-		background-position: 0 0;
+		/* Start with the background color at 25% opacity. */
+		background-color: rgba(0, 136, 255, 0.25);
 	}
 
 	50% {
-		/* In the middle we have 50%, 0% */
-		background-position: 50% 0;
+		/* In the middle we have 50% opacity. */
+		background-color: rgba(0, 136, 255, 0.5);
 	}
 	
 	100% {
-		/* End at 100%, 0% */
-		background-position: 100% 0;
+		/* End at 0% opacity. */
+		background-color: rgba(0, 136, 255, 0);
 	}
 }
 
@@ -160,7 +160,6 @@ section section, form input {
 	color: transparent;
 	text-shadow: 0 0 4px #000;
 	background-size: cover;
-	background-size: 100vw 100vh;
 	background-image: linear-gradient(to right, rgba(0, 136, 255, 0) 5%, rgba(0, 136, 255, 0.25), rgba(0, 136, 255, 0) 95%);
 	background-attachment: repeat-x;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
