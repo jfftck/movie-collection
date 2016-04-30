@@ -117,7 +117,7 @@ section section, form input {
 }
 
 section section {
-	max-height: 45%;
+	min-height: 10em;
 	max-width: 45%;
 }
 
