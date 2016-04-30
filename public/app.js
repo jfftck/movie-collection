@@ -31,6 +31,11 @@ var MovieApp = {
 	search: function(term) {
 		// Do a search on OMDBapi for the movie title.
 		
+		if (term.length < 2) {
+			// OMDBapi does not do searches less than 2 characters.
+			return;
+		}
+		
 		// Get the "Find" button.
 		var find = $("#find");
 		
