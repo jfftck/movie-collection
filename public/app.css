@@ -254,6 +254,8 @@ section section {
 }
 
 .listItem {
+	-webkit-flex: none;
+	flex: none;
 	cursor: pointer;
 }
 

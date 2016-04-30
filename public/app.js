@@ -185,7 +185,7 @@ var MovieApp = {
 				// This listItem was clicked so now we need to get the movie details.
 				
 				// We set this to busy when it is searching.
-				this.className = "busy";
+				this.className = "listItem busy";
 				// We need to remember what listItem was clicked on.
 				var that = this;
 				// The list item was clicked, so now we query the details.
