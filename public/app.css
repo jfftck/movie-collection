@@ -189,7 +189,7 @@ section section {
 	color: #777;
 	text-align: center;
 	-webkit-flex: 1 0 auto;
-	flex: 1 0 auto; 
+	flex: 0 0 auto; 
 	margin: auto;
 }
 
