@@ -1,5 +1,5 @@
 /* Animation Frames */
-@keyframes busyScroll {
+@keyframes scroll {
 	/* Create a scrolling background when busy. */
 	from {
 		/* Start with the background at 0%, 0% */
@@ -158,9 +158,9 @@ section section, form input {
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 85%);
 	background-attachment: repeat-x;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
-	-moz-animation: busyScroll 2s linear infinite;
-	-webkit-animation: busyScroll 2s linear infinite;
-	animation: busyScroll 2s linear infinite;
+	-moz-animation: scroll 2s linear infinite;
+	-webkit-animation: scroll 2s linear infinite;
+	animation: scroll 2s linear infinite;
 }
 
 .list {
