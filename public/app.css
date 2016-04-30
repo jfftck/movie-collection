@@ -114,8 +114,11 @@ section {
 section section, form input {
 	-webkit-flex: 1 0 auto;
 	flex: 1 0 auto;
-	min-height: 40%;
-	max-height: 99%;
+}
+
+section section {
+	max-height: 45%;
+	max-width: 45%;
 }
 
 /* Id Styles */
