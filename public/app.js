@@ -35,8 +35,8 @@ var MovieApp = {
 		var find = $("#find");
 		
 		if (find !== null) {
-			// We set the button to active to show that it is searching.
-			find.className = "active";
+			// We set the button to busy to show that it is searching.
+			find.className = "busy";
 		}
 		
 		// !!! This is hardcoded for the demo, but we should define them as constants at the top of the app. !!!
@@ -48,7 +48,7 @@ var MovieApp = {
 			MovieApp.setItems("movieList", listItems);
 			
 			if (find !== null) {
-				// We remove the active state when we are done.
+				// We remove the busy state when we are done.
 				find.className = "";
 			}
 		});
@@ -177,6 +177,10 @@ var MovieApp = {
 			var listItem = $("!div.listItem", {"data-id": item.imdbID}, item.Title);
 			
 			listItem.addEventListener("click", function(event) {
+				// This listItem was clicked so now we need to get the movie details.
+				
+				// We set this to busy when it is searching.
+				this.className = "busy";
 				// The list item was clicked, so now we query the details.
 				MovieApp.get("https://www.omdbapi.com", {"i": this.getAttribute("data-id")}, function(results) {
 					// We parse the JSON data.
@@ -208,6 +212,9 @@ var MovieApp = {
 					
 					// Show the overlay with the dialog on it.
 					MovieApp.showOverlay(dialog);
+					
+					// We are done being busy.
+					this.className = "";
 				});
 			});
 			
