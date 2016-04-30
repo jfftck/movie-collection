@@ -41,7 +41,7 @@ var MovieApp = {
 		
 		// !!! This is hardcoded for the demo, but we should define them as constants at the top of the app. !!!
 		// !!! Need to add support for pages in the current OMDBapi spec for searches. !!!
-		MovieApp.get("http://www.omdbapi.com", {"s": term}, function(results) {
+		MovieApp.get("https://www.omdbapi.com", {"s": term}, function(results) {
 			// We should now have data on the movies that we searched for and pass the parsed version to the list builder.
 			var listItems = MovieApp.createListItems(JSON.parse(results));
 			
@@ -178,7 +178,7 @@ var MovieApp = {
 			
 			listItem.addEventListener("click", function(event) {
 				// The list item was clicked, so now we query the details.
-				MovieApp.get("http://www.omdbapi.com", {"i": this.getAttribute("data-id")}, function(results) {
+				MovieApp.get("https://www.omdbapi.com", {"i": this.getAttribute("data-id")}, function(results) {
 					// We parse the JSON data.
 					var data = JSON.parse(results);
 					
