@@ -159,8 +159,8 @@ section section, form input {
 .busy {
 	color: transparent;
 	text-shadow: 0 0 4px #000;
-	background-size: 100% 100%;
-	background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 85%);
+	background-size: cover;
+	background-image: linear-gradient(to right, rgba(0, 136, 255, 0) 5%, rgba(0, 136, 255, 0.25), rgba(0, 136, 255, 0) 95%);
 	background-attachment: repeat-x;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 	-moz-animation: scroll 2s linear infinite;
