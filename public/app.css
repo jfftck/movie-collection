@@ -171,10 +171,6 @@ section section {
 }
 
 .list {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: column;
-	flex-flow: cloumn;
 	min-height: 10em;
 	-webkit-flex: 1 0 auto;
 	flex: 1 0 auto; 	
@@ -255,8 +251,6 @@ section section {
 }
 
 .listItem {
-	-webkit-flex: none;
-	flex: none;
 	cursor: pointer;
 }
 
