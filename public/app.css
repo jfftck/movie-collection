@@ -1,12 +1,17 @@
 /* Animation Frames */
 @keyframes scroll {
 	/* Create a scrolling background when busy. */
-	from {
+	0% {
 		/* Start with the background at 0%, 0% */
 		background-position: 0 0;
 	}
 
-	to {
+	50% {
+		/* In the middle we have 50%, 0% */
+		background-position: 50% 0;
+	}
+	
+	100% {
 		/* End at 100%, 0% */
 		background-position: 100% 0;
 	}
