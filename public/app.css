@@ -169,7 +169,7 @@ section section, form input {
 	flex: 1 0 auto; 	
 	overflow: auto;
 	position: relative;
-	padding: 1px;
+	padding: 2px;
 }
 
 .emptyMessage {
@@ -243,6 +243,7 @@ section section, form input {
 .listItem {
 	cursor: pointer;
 	padding: 1px;
+	margin: -1px;
 }
 
 .listItem:hover {
