@@ -181,6 +181,8 @@ var MovieApp = {
 				
 				// We set this to busy when it is searching.
 				this.className = "listItem busy";
+				// We need to remember what listItem was clicked on.
+				var that = this;
 				// The list item was clicked, so now we query the details.
 				MovieApp.get("https://www.omdbapi.com", {"i": this.getAttribute("data-id")}, function(results) {
 					// We parse the JSON data.
@@ -210,11 +212,11 @@ var MovieApp = {
 					// Add the "Favorites" button to the dialog.
 					dialog.querySelector(".contents").appendChild(favoriteButton);
 					
-					// Show the overlay with the dialog on it.
-					MovieApp.showOverlay(dialog);
-					
 					// We are done being busy.
-					this.className = "listItem";
+					that.className = "listItem";
+					
+					// Show the overlay with the dialog on it.
+					MovieApp.showOverlay(dialog);					
 				});
 			});
 			
