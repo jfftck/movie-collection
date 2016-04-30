@@ -180,7 +180,7 @@ var MovieApp = {
 				// This listItem was clicked so now we need to get the movie details.
 				
 				// We set this to busy when it is searching.
-				this.className = "busy";
+				this.className = "listItem busy";
 				// The list item was clicked, so now we query the details.
 				MovieApp.get("https://www.omdbapi.com", {"i": this.getAttribute("data-id")}, function(results) {
 					// We parse the JSON data.
@@ -214,7 +214,7 @@ var MovieApp = {
 					MovieApp.showOverlay(dialog);
 					
 					// We are done being busy.
-					this.className = "";
+					this.className = "listItem";
 				});
 			});
 			

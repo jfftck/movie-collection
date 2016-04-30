@@ -133,19 +133,6 @@ section section, form input {
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 
-#find.active {
-	color: transparent;
-	text-shadow: 0 0 4px #000;
-	background-size: 500px 2em;
-	background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 75%);
-	background-attachment: repeat-x;
-	border-color: rgba(0, 0, 0, 0.25);
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
-	-moz-animation: busy 2s linear infinite;
-	-webkit-animation: busy 2s linear infinite;
-	animation: busy 2s linear infinite;
-}
-
 #overlay {
 	position: fixed;
 	top: 0;
@@ -165,6 +152,19 @@ section section, form input {
 }
 
 /* Class Styles */
+.busy {
+	color: transparent;
+	text-shadow: 0 0 4px #000;
+	background-size: 500px 2em;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 75%);
+	background-attachment: repeat-x;
+	border-color: rgba(0, 0, 0, 0.25);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+	-moz-animation: busy 2s linear infinite;
+	-webkit-animation: busy 2s linear infinite;
+	animation: busy 2s linear infinite;
+}
+
 .list {
 	min-height: 10em;
 	-webkit-flex: 1 0 auto;
