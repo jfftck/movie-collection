@@ -125,12 +125,11 @@ section section, form input {
 	max-width: 5em;
 	color: #000;
 	backgound-color: transparent;
-	border: 1px solid transparent;
+	border: none;
 }
 
 #find:hover {
-	border-color: rgba(0, 0, 0, 0.25);
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 
 #overlay {
@@ -158,8 +157,7 @@ section section, form input {
 	background-size: 500px 2em;
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 85%);
 	background-attachment: repeat-x;
-	border-color: rgba(0, 0, 0, 0.25);
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 	-moz-animation: busy 2s linear infinite;
 	-webkit-animation: busy 2s linear infinite;
 	animation: busy 2s linear infinite;
