@@ -1,0 +1,250 @@
+/* Animation Frames */
+@keyframes busy {
+	/* Create a scrolling background when busy. */
+	from {
+		/* Start with the background at 0%, 0% */
+		background-position: 0 0;
+	}
+
+	to {
+		/* End at 100%, 0% */
+		background-position: 100% 0;
+	}
+}
+
+@keyframes slideIn {
+	/* Slide the dialog box in from the top. */
+	from {
+		/* Pull the dialog 70% up; */
+		margin-top: -75%;
+	}
+	
+	to {
+		/* Place the dialog in the neutral position. */
+		margin-top: 0%;
+	}
+}
+
+/* Tag Styles */
+html, body {
+	/* Set the html and body elements to the same defaults. */
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	height: 100vh;
+	overflow: auto;
+	box-sizing: border-box;
+}
+
+html {
+	/* Set font color, background color, font and turn off scrolling. */
+	color: #000;
+	background-color: #aaa;
+	overflow: hidden;
+	font-family: Arial, Helvetica, "Open Sans", sans-serif;
+}
+
+body {
+	/* Set the padding for the content so the background is covering the whole page. */
+	padding: 0.5em;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+section section {
+	background: inherit;
+	background-color: #eee;
+	margin: 0.5em;
+	box-shadow: 0 1px 4px #000;
+	padding: 0.8em 1em;
+	position: relative;
+	min-width: 30em;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column wrap;
+	flex-flow: column wrap;	
+}
+
+header h1,
+header h2,
+header h3,
+header h4,
+header h5,
+header h6 {
+	margin: 0 0 0.2em;
+}
+
+form {
+	margin: 0 0 0.5em;
+}
+
+body > section, form {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+body {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: cloumn;
+	flex-direction: column;	
+}
+
+body #titlebar {
+	-webkit-flex: none;
+	flex: none;
+	background-color: #08f;
+	color: #fff;
+	padding: 0.8em 1em 0.3em;
+	box-shadow: 0 1px 8px #000;
+}
+
+section {
+	-webkit-flex: 1 1 100%;
+	flex: 1 1 100%;
+}
+
+section section, form input {
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+	min-height: 40%;
+	max-height: 99%;
+}
+
+/* Id Styles */
+#title {
+	border: 1px solid transparent;
+	background-color: transparent;
+	border-bottom-color: #000;
+	color: #000;
+}
+
+#find {
+	max-width: 5em;
+	color: #000;
+	backgound-color: transparent;
+	border: 1px solid transparent;
+}
+
+#find:hover {
+	border-color: rgba(0, 0, 0, 0.25);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+#find.active {
+	color: transparent;
+	background-size: 500px 2em;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 75%);
+	background-attachment: repeat-x;
+	border-color: rgba(0, 0, 0, 0.25);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+	-moz-animation: busy 2s linear infinite;
+	-webkit-animation: busy 2s linear infinite;
+	animation: busy 2s linear infinite;
+}
+
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+	backgound-color: #888;
+	backgound-color: rgba(0, 0, 0, 0);
+	transition: background 0.5s;
+	height: 100%;
+	width: 100%;
+}
+
+#overlay.active {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Class Styles */
+.list {
+	min-height: 10em;
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto; 	
+	overflow: auto;
+	position: relative;
+}
+
+.emptyMessage {
+	color: #777;
+	text-align: center;
+}
+
+.dialog {
+	position: relative;
+	margin: auto auto 5%;
+	height: 80%;
+	width: 80%;
+	max-width: 100vh;
+	background-color: #eee;
+	box-shadow: 0 1px 4px #000;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-moz-animation: slideIn 0.5s linear;
+	-webkit-animation: slideIn 0.5s linear;
+	animation: slideIn 0.5s linear;
+	transition: all 0.5s;
+}
+
+.dialog + .dialog {
+	opacity: 0.5;
+	-moz-animation: slideIn 0.5s linear;
+	-webkit-animation: slideIn 0.5s linear;
+	animation: slideIn 0.5s linear;
+}
+
+.dialog:hover {
+	opacity: 1;
+}
+
+.dialog .close {
+	position: absolute;
+	right: 0.2em;
+	top: 0.2em;
+	height: 2em;
+	width: 2em;
+	line-height: 2em;
+	text-align: center;
+	cursor: pointer;
+	color: #555;
+}
+
+.dialog .close:hover {
+	color: #fff;
+	background-color: #800;
+}
+
+.dialog .title {
+	color: #555;
+	padding: 0 0.2em;
+	height: 2em;
+	line-height: 2em;
+	font-weight: bold;
+}
+
+.dialog .contents {
+	overflow: auto;
+	position: absolute;
+	top: 2.2em;
+	left: 0.2em;
+	right: 0.2em;
+	bottom: 0.2em;
+}
+
+.listItem {
+	cursor: pointer;
+}
+
+.listItem:hover {
+	color: #fff;
+	background-color: #08f;
+}
