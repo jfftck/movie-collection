@@ -269,6 +269,12 @@ section section {
 }
 
 @media only screen or (max-width: 640px) {
+	body > section {
+		-webkit-flex-flow: column wrap;
+		flex-flow: column wrap;
+		flex-direction: column;
+	}
+	
 	section section {
 		min-width: 200px;
 		max-width: auto;
