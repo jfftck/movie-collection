@@ -1,0 +1,17 @@
+{
+  "name": "movie-collection",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/node"
+    }
+  ]
+}
