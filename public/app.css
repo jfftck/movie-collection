@@ -138,7 +138,9 @@ section section {
 }
 
 #find:hover {
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+	color: #fff;
+	background-color: #08f;
+	box-shadow: 0 1px 4px #000;
 }
 
 #overlay {
@@ -183,7 +185,7 @@ section section {
 	flex: 1 0 auto; 	
 	overflow: auto;
 	position: relative;
-	padding: 1px;
+	padding: 3px;
 }
 
 .emptyMessage {

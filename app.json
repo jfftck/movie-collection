@@ -11,11 +11,7 @@
   ],
   "buildpacks": [
     {
-      "url": "heroku/node"
+      "url": "http://heroku.com/node"
     }
   ]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> bcb591413bc8b200835a6566be9ffc8da8413f43
