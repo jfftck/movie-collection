@@ -168,7 +168,7 @@ section section {
 	background-size: cover;
 	background-image: linear-gradient(to right, rgba(0, 136, 255, 0) 5%, rgba(0, 136, 255, 0.25), rgba(0, 136, 255, 0) 95%);
 	background-attachment: repeat-x;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.25) !important;
 	-moz-animation: pulse 2s linear infinite;
 	-webkit-animation: pulse 2s linear infinite;
 	animation: pulse 2s linear infinite;
