@@ -266,3 +266,10 @@ section section {
 	color: #fff;
 	background-color: #08f;
 }
+
+@media all and (max-width: 640px) {
+	section section {
+		max-height: 50%;
+		min-width: 200px;
+	}
+}
