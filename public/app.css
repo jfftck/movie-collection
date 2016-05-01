@@ -266,6 +266,7 @@ section section {
 .listItem:hover {
 	color: #fff;
 	background-color: #08f;
+	box-shadow: 0 1px 4px #000;
 }
 
 @media only screen or (max-width: 640px) {
