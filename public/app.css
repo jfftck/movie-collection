@@ -119,6 +119,7 @@ section section, form input {
 section section {
 	min-height: 10em;
 	max-width: 50%;
+	min-width: 300px;
 }
 
 /* Id Styles */
@@ -267,7 +268,7 @@ section section {
 	background-color: #08f;
 }
 
-@media all and (max-width: 640px) {
+@media only screen or (max-width: 640px) {
 	section section {
 		min-width: 200px;
 		max-width: auto;
