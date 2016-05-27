@@ -18,8 +18,8 @@ var MovieApp = {
 	init: function() {		
 		// Do a search when the "Find" button is clicked.
 		$("#find").addEventListener("click", function(event) {
-			// Search OMDBapi for the movie.
-			MovieApp.search($("#title").value);
+			// Start on the first page and we have zero items counted so far.
+			MovieApp.createSearchList();
 		}, false);
 		
 		// Add a message to the search list, since it has not been used yet.
@@ -28,14 +28,9 @@ var MovieApp = {
 		MovieApp.loadFavorites();
 	},
 	
-	search: function(term) {
-		// Do a search on OMDBapi for the movie title.
-		
-		if (term.length < 2) {
-			// OMDBapi does not do searches less than 2 characters.
-			return;
-		}
-		
+	createSearchList: function(page = 1, itemCount = 0, previousListItems = []) {
+		// Cteate a full list of results.
+
 		// Get the "Find" button.
 		var find = $("#find");
 		
@@ -44,18 +39,44 @@ var MovieApp = {
 			find.className = "busy";
 		}
 		
-		// !!! This is hardcoded for the demo, but we should define them as constants at the top of the app. !!!
-		// !!! Need to add support for pages in the current OMDBapi spec for searches. !!!
-		MovieApp.get("https://www.omdbapi.com", {"s": term}, function(results) {
-			// We should now have data on the movies that we searched for and pass the parsed version to the list builder.
-			var listItems = MovieApp.createListItems(JSON.parse(results));
+		// Search OMDBapi for the movie.
+		MovieApp.search($("#title").value, page, function(results) {
+			var listItems = MovieApp.createListItems(results);
 			
-			MovieApp.setItems("movieList", listItems);
+			// We merge the lists together.
+			Array.prototype.push.apply(previousListItems, listItems);
 			
-			if (find !== null) {
+			// Add the count of items to our running total.
+			itemCount += results.Search.length;
+			
+			if (itemCount >= parseInt(results.totalResults) && find !== null) {
+				// Now we add the items.
+				MovieApp.setItems("movieList", previousListItems);
+
 				// We remove the busy state when we are done.
 				find.className = "";
+			} else {
+				// We go to the next page.
+				page++
+				// We still have items to find.
+				MovieApp.createSearchList(page, itemCount, previousListItems);
 			}
+		});
+	},
+	
+	search: function(term, page, func) {
+		// Do a search on OMDBapi for the movie title.
+						
+		if (term.length < 2) {
+			// OMDBapi does not do searches less than 2 characters.
+			return;
+		}
+		
+		// !!! This is hardcoded for the demo, but we should define them as constants at the top of the app. !!!
+		// !!! Need to add support for pages in the current OMDBapi spec for searches. !!!
+		MovieApp.get("https://www.omdbapi.com", {"s": term, "page": page}, function(results) {
+			// We should now have data on the movies that we searched for and pass the parsed version to the list builder.
+			func(JSON.parse(results));
 		});
 	},
 	
@@ -198,30 +219,11 @@ var MovieApp = {
 						return;
 					}
 					
-					// Create the details from the data.
-					var details = MovieApp.createDetails(data);
-					// Create a dialog to display the data.
-					var dialog = MovieApp.createDialog(data.Title, details);
-					
-					// Create the "Favorite" button.
-					var favoriteButton = $("!input", {type: "button", value: "Favorite"});
-					
-					favoriteButton.addEventListener("click", function() {
-						// Button was clicked, so now we store the data on the server.
-						MovieApp.post("/favorites", data, function(results) {
-							// Now that we have the data let's build the favorites list.
-							MovieApp.buildFavoritesList(results);
-						});
-					});
-					
-					// Add the "Favorites" button to the dialog.
-					dialog.querySelector(".contents").appendChild(favoriteButton);
+					// Create a dialog and show the details.
+					MovieApp.showItemDetails(data);
 					
 					// We are done being busy.
 					that.className = "listItem";
-					
-					// Show the overlay with the dialog on it.
-					MovieApp.showOverlay(dialog);					
 				});
 			});
 			
@@ -231,6 +233,30 @@ var MovieApp = {
 		
 		// Return the array.
 		return items;
+	},
+	
+	showItemDetails: function(data) {
+		// Create the details from the data.
+		var details = MovieApp.createDetails(data);
+		// Create a dialog to display the data.
+		var dialog = MovieApp.createDialog(data.Title, details);
+		
+		// Create the "Favorite" button.
+		var favoriteButton = $("!input", {type: "button", value: "Favorite"});
+		
+		favoriteButton.addEventListener("click", function() {
+			// Button was clicked, so now we store the data on the server.
+			MovieApp.post("/favorites", data, function(results) {
+				// Now that we have the data let's build the favorites list.
+				MovieApp.buildFavoritesList(results);
+			});
+		});
+		
+		// Add the "Favorites" button to the dialog.
+		dialog.querySelector(".contents").appendChild(favoriteButton);
+		
+		// Show the overlay with the dialog on it.
+		MovieApp.showOverlay(dialog);					
 	},
 	
 	createFavoriteItems: function(results) {

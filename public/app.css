@@ -181,6 +181,7 @@ section section {
 	flex-flow: cloumn;
 	flex-direction: column;	
 	min-height: 10em;
+	max-height: 90vh;
 	-webkit-flex: 1 0 auto;
 	flex: 1 0 auto; 	
 	overflow: auto;
